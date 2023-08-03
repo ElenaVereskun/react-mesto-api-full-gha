@@ -1,0 +1,28 @@
+.popup-add__place {
+    display: flex;
+    position: relative;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    width: 238px;
+    margin-left: 22px;
+    margin-right: 22px;
+    padding: 23px 0px 12px 0px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    }
+
+@media screen and (min-width: 1280px) {
+    .popup-add__place {
+        margin-left: 36px;
+        margin-right: 36px;
+        width: 358px;
+        padding: 20px 0px 15px 0px;
+    }
+}

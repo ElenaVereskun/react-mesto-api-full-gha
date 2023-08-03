@@ -1,0 +1,16 @@
+.profile__user-name {
+    display: flex;
+    padding-top: 28.25px;
+    column-gap: 20px;
+    flex-direction: column;
+    padding-left: 27px;
+    align-items: center;
+}
+
+@media screen and (min-width: 1280px) {
+    .profile__user-name {
+        padding-left: 0px;
+        padding-top: 19px;
+        align-items:flex-start;
+    }
+}

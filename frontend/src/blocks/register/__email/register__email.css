@@ -1,0 +1,19 @@
+.register__email {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #CCCCCC;
+    width: 260px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px px solid rgba(0, 0, 0, 0.2);
+    background: black;
+    padding-top: 40px;
+}
+
+@media screen and (min-width: 1280px) {
+    .register__email {
+        width: 358px;
+    }
+}

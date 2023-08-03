@@ -1,0 +1,11 @@
+.profile__user-edit {
+    display: flex;
+    align-items: baseline;
+    column-gap: 10px;
+}
+
+@media screen and (min-width: 1280px) {
+    .profile__user-edit {
+        column-gap: 18px;
+    }
+}

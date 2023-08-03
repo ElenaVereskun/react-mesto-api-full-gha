@@ -1,0 +1,9 @@
+.register__button-enter {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+    background: black;
+    border: none;
+}

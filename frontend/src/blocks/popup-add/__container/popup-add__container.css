@@ -1,0 +1,14 @@
+.popup-add__container {
+    position: relative;
+    width: 282px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    margin: auto;
+}
+
+@media screen and (min-width: 1280px) {
+    .popup-add__container {
+        width: 430px;
+    }
+}

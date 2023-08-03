@@ -1,0 +1,14 @@
+.infotooltip__caption-red {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: red;
+}
+
+@media screen and (min-width: 1280px) {
+    .infotooltip__caption-red {
+        font-size: 24px;
+        line-height: 29px;
+    }
+}

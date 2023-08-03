@@ -1,0 +1,22 @@
+.infotooltip__button-close {
+    position: absolute;
+    background-image: url('../../../images/close-button.svg');
+    width: 20px;
+    height: 20px;
+    right: 0px;
+    top: -26px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (min-width: 1280px) {
+    .infotooltip__button-close {
+        width: 32px;
+        height: 32px;
+        right: -40px;
+        top: -40px;
+    }
+}

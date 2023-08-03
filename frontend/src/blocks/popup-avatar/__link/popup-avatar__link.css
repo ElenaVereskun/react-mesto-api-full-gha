@@ -1,0 +1,27 @@
+.popup-avatar__link {
+    display: flex;
+    position: relative;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    width: 240px;
+    margin-left: 22px;
+    margin-right: 22px;
+    padding: 54px 0px 8px 0px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 1280px) {
+    .popup-avatar__link {
+        width: 358px;
+        margin-left: 36px;
+        margin-right: 36px;
+    }
+}

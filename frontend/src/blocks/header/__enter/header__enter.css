@@ -1,0 +1,23 @@
+.header__enter {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+    background-color: black;
+    text-align: right;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1280px) {
+    .header__enter {
+        font-size: 18px;
+        line-height: 22px;
+        margin-right: 0px;
+    }
+}
+
+.header__enter:hover {
+    color: #545454;
+}

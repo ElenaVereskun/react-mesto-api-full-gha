@@ -1,0 +1,20 @@
+.elements {
+    padding-top: 36px;
+    display: grid;
+    gap: 20px;
+    padding-left: 0px;
+    margin: 0 auto;
+    max-width: 320px;
+    min-height: 100vh;
+}
+
+@media screen and (min-width: 1280px) {
+    .elements {
+        padding-top: 47.25px;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        row-gap: 20px;
+        column-gap: 17px;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,15 @@
+.header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    width: 320px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+@media screen and (min-width: 1280px) {
+    .header__container {
+        width: 880px;
+    }
+}

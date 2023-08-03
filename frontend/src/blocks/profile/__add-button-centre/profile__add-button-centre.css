@@ -1,0 +1,14 @@
+.profile__add-button-centre {
+    height: 16px;
+    width: 16px;
+    background-position: center;
+    border: none;
+    background-image: url(../../../images/add-button.svg);
+}
+
+@media screen and (min-width: 1280px) {
+    .profile__add-button-centre {
+        height: 22px;
+        width: 22px;
+    }
+}
