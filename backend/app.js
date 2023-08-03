@@ -10,7 +10,7 @@ const limiter = rateLimit({
   windowMs: 60 * 60 * 1000,
   message: 'Too many request from this IP',
 });
-
+const cors = require('cors');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const routes = require('./routes');
@@ -27,6 +27,13 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 
 app.use(limiter);
 app.use(express.json());
+app.use(
+  cors({
+    origin: 'https://mesto.vereskun.nomoreparties.co',
+    credentials: true,
+  }),
+);
+
 app.use(requestLogger);
 app.use(routes);
 app.use(errorLogger);
