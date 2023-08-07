@@ -31,6 +31,7 @@ app.use(
   cors({
     origin: 'https://mesto.vereskun.nomoreparties.co',
     credentials: true,
+    maxAge: 30,
   }),
 );
 
