@@ -129,7 +129,7 @@ function App() {
             navigate("/main", { replace: true });
           }
         })
-        .catch((err) => console.log(`Ошибка получения токена: ${err}`));
+        .catch((err) => console.log(`Ошибка получения токена: ${err}`)); 
     }
   }
   function handleEmail() {

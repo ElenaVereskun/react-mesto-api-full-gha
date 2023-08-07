@@ -10,14 +10,14 @@ const STATUS_CREATED = 201;
 
 module.exports.getCards = (req, res) => {
   Card.find({})
-    .then((card) => res.status(STATUS_OK).send({ data: card }));
+    .then((card) => res.status(STATUS_OK).send(card));
 };
 
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   const owner = req.user._id;
   return Card.create({ name, link, owner })
-    .then((card) => res.status(STATUS_CREATED).send({ data: card }))
+    .then((card) => res.status(STATUS_CREATED).send(card))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         throw new BadRequestError('Переданы некорректные данные');

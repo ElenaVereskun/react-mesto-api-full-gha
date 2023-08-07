@@ -1,11 +1,12 @@
 class Api {
-    constructor({baseUrl, headers}) {
+    constructor({ baseUrl, headers }) {
         this.baseUrl = baseUrl;
         this.headers = headers
     }
     //1. Загрузка информации о пользователе с сервера
     getUserProfileInfo() {
         return fetch(`${this.baseUrl}/users/me`, {
+            credentials: "include",
             headers: this.headers
         })
             .then(res => this._errorCheck(res))
@@ -13,6 +14,7 @@ class Api {
     //2. Загрузка карточек с сервера
     getCards() {
         return fetch(`${this.baseUrl}/cards`, {
+            credentials: "include",
             headers: this.headers
         })
             .then(res => this._errorCheck(res))
@@ -20,6 +22,7 @@ class Api {
     //3. Редактирование профиля
     editUserInfo({ name, about }) {
         return fetch(`${this.baseUrl}/users/me`, {
+            credentials: "include",
             method: 'PATCH',
             headers: this.headers,
             body: JSON.stringify({ name, about })
@@ -29,6 +32,7 @@ class Api {
     //4. Добавление новой карточки
     createCard({ name, link }) {
         return fetch(`${this.baseUrl}/cards`, {
+            credentials: "include",
             method: 'Post',
             headers: this.headers,
             body: JSON.stringify({ name, link })
@@ -75,9 +79,9 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl:'https://api.mesto.elenavereskun.nomoreparties.co',
+    baseUrl: 'https://api.mesto.elenavereskun.nomoreparties.co',
     headers: {
-        authorization: '8f35f71b-a7e4-4bcd-adfc-0c93657d6d95',
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
         'Content-Type': 'application/json'
     }
 });

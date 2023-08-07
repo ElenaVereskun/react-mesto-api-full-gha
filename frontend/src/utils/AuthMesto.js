@@ -1,5 +1,5 @@
 export const BASE_URL = "https://api.mesto.elenavereskun.nomoreparties.co";
-
+/* export const BASE_URL = "http://localhost:3000"; */
 function errorCheck(res) {
     if (res.ok) {
         return res.json();
@@ -24,7 +24,7 @@ export const register = ({ password, email }) => {
 
 export const authorize = ({email, password}) => {
     return fetch(`${BASE_URL}/signin`, {
-        method: 'POST',
+        method: 'POST',        
         headers: {
             'Content-Type': 'application/json'
         },
@@ -34,10 +34,10 @@ export const authorize = ({email, password}) => {
 };
 export const getToken = () => {
     return fetch(`${BASE_URL}/users/me`, {
-        method: 'GET',
+        method: 'GET',        
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem('jwt')}`
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('jwt')}`
         }
     })
         .then(res => errorCheck(res))
