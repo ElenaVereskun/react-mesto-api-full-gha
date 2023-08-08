@@ -79,7 +79,7 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: 'https://api.mesto.elenavereskun.nomoreparties.co',
+    baseUrl: 'http://api.mesto.elenavereskun.nomoreparties.co',
     headers: {
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
         'Content-Type': 'application/json'

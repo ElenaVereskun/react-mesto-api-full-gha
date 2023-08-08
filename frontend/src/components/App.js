@@ -69,7 +69,7 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
     if (!isLiked) {
       api.likeCard(card._id)
         .then((newCard) => {
@@ -125,7 +125,7 @@ function App() {
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
-            setEmail(res.data.email);
+           /*  setEmail(res.data.email); */
             navigate("/main", { replace: true });
           }
         })
