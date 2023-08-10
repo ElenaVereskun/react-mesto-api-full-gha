@@ -32,8 +32,6 @@ app.use(express.json());
 app.use(
   cors({
     origin: ['http://localhost:3000', 'https://mesto.vereskun.nomoreparties.co'],
-    credentials: true,
-    maxAge: 30,
   }),
 );
 
