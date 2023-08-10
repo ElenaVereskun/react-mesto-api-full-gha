@@ -48,19 +48,16 @@ function App() {
     setIsAddPlacePopupOpen(false);
     setSelectedCard({});
   }
+
   useEffect(() => {
+    const token = localStorage.getItem('jwt')
     isLoggedIn &&
-      api.getUserProfileInfo()
-        .then((data) => {
-          setCurrentUser(data);
+      Promise.all([api.getUserProfileInfo(token), api.getCards(token)])
+        .then(([user, cards]) => {
+          setCurrentUser(user);
+          setCards(cards);
         })
-        .catch((err) => console.log(`Ошибка загрузки данных: ${err}`))
-    isLoggedIn &&
-      api.getCards()
-        .then((data) => {
-          setCards(data)
-        })
-        .catch((err) => console.log(`Ошибка загрузки карточек: ${err}`));
+        .catch((err) => console.log(`Ошибка загрузки данных профиля: ${err}`))
   }, [isLoggedIn]);
 
   useEffect(() => {
@@ -68,7 +65,6 @@ function App() {
   }, []);
 
   function handleCardLike(card) {
-    // Снова проверяем, есть ли уже лайк на этой карточке
     const isLiked = card.likes.some(i => i === currentUser._id);
     if (!isLiked) {
       api.likeCard(card._id)
@@ -125,11 +121,11 @@ function App() {
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
-           /*  setEmail(res.data.email); */
+            setEmail(res.email);
             navigate("/main", { replace: true });
           }
         })
-        .catch((err) => console.log(`Ошибка получения токена: ${err}`)); 
+        .catch((err) => console.log(`Ошибка получения токена: ${err}`));
     }
   }
   function handleEmail() {
@@ -189,8 +185,13 @@ function App() {
           onCardDelete={handleCardDelete}
           cards={cards}
           setEmail={email}
+          setIsLoggedIn={setIsLoggedIn}
         />} isLoggedIn={isLoggedIn} />} />
-        <Route path='/signin' element={<Login onLogin={handleEmail} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path='/signin' element={<Login
+          onLogin={handleEmail}
+          setEmail={setEmail}
+          setIsLoggedIn={setIsLoggedIn}
+          infoTooltipFail={infoTooltipFail} />} />
         <Route path='/signup' element={<Register
           onRegister={setIsLoggedIn}
           infoTooltipSuccess={infoTooltipSuccess}

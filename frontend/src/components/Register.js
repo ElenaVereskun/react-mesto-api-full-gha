@@ -30,6 +30,7 @@ function Register({ onRegister, infoTooltipSuccess, infoTooltipFail }) {
                 onRegister(true);
                 infoTooltipSuccess();
             })
+            .then(() => navigate("/signin"))
             .catch(() => infoTooltipFail());
     }
 

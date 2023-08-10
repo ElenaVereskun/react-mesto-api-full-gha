@@ -7,6 +7,8 @@ const BadRequestError = require('../errors/bad-request-error');
 const Unauthorized = require('../errors/unauthorized');
 const Confict = require('../errors/confict');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const STATUS_OK = 200;
 const STATUS_CREATED = 201;
 
@@ -111,8 +113,12 @@ module.exports.login = (req, res, next) => {
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
-      res.status(STATUS_OK).send({ token });
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+        { expiresIn: '7d' },
+      );
+      res.status(STATUS_OK).send({ token, email: user.email });
     })
     .catch(() => {
       throw new Unauthorized('Нет пользователя с таким логином и паролем');

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import AuthForm from "./AuthForm";
 
-function Login({ onLogin, setIsLoggedIn }) {
+function Login({ onLogin, setIsLoggedIn, infoTooltipFail, setEmail }) {
     const [formValue, setFormValue] = useState({
         email: '',
         password: ''
@@ -32,13 +32,14 @@ function Login({ onLogin, setIsLoggedIn }) {
                     localStorage.setItem('jwt', data.token);
                     setFormValue({ email: '', password: '' });
                     onLogin(data.token);
+                    setEmail(data.email);
                     setIsLoggedIn(true);
                     navigate('/main', { replace: true });
                 } else {
                     setErrorMesage("Не корректные email или пароль")
                 }
             })
-            .catch((err) => console.log(`Ошибка авторизации: ${err}`));
+            .catch((err) => infoTooltipFail());
     }
     function handleRegister() {
         navigate("/signup");

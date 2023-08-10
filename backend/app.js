@@ -1,4 +1,6 @@
 const express = require('express');
+require('dotenv').config();
+const helmet = require('helmet');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -24,12 +26,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 })
   .then(() => console.log('Сервер работает'))
   .catch(() => console.log('Сервер не работает'));
+app.use(helmet());
 
-app.use(limiter);
 app.use(express.json());
 app.use(
   cors({
-    origin: ['http://localhost:3001', 'https://mesto.vereskun.nomoreparties.co'],
+    origin: ['http://localhost:3000', 'https://mesto.vereskun.nomoreparties.co'],
     credentials: true,
     maxAge: 30,
   }),
@@ -38,6 +40,7 @@ app.use(
 app.use(requestLogger);
 app.use(routes);
 app.use(errorLogger);
+app.use(limiter);
 app.use('*', () => {
   throw new NotFoundError('Страница не найдена');
 });

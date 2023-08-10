@@ -2,7 +2,7 @@ import React from 'react';
 import Card from "./Card";
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import Header from './Header';
-import * as authMesto from '../utils/AuthMesto';
+/* import * as authMesto from '../utils/AuthMesto'; */
 import { useNavigate } from "react-router-dom";
 
 function Main({
@@ -13,24 +13,16 @@ function Main({
     onCardLike,
     onCardDelete,
     cards,
-    setEmail
+    setEmail,
+    setIsLoggedIn
 }) {
     const currentUser = React.useContext(CurrentUserContext);
     const navigate = useNavigate();
 
     function onSignOut() {
-        const jwt = localStorage.getItem('jwt');
-        if (jwt) {
-            authMesto.getToken(jwt)
-                .then((res) => {
-                    if (res) {
-                        localStorage.removeItem('jwt');
-                        navigate("/signin", { replace: false });
-                        return;
-                    }
-                })
-                .catch((err) => console.log(`Ошибка удаления токена: ${err}`));
-        }
+        localStorage.removeItem('token');
+        navigate('/signin', { replace: true });
+        setIsLoggedIn(false);
     }
     return (
         <>
@@ -39,7 +31,7 @@ function Main({
                 <section className="profile">
                     <div className="profile__info">
                         <div className="profile__photo">
-                            <img className="profile__avatar" src={currentUser.avatar} alt={currentUser.avatar}/>
+                            <img className="profile__avatar" src={currentUser.avatar} alt={currentUser.avatar} />
                             <button className="profile__edit-avatar" onClick={onEditAvatar}></button>
                         </div>
                         <div className="profile__user-name">
