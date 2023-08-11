@@ -113,8 +113,6 @@ function App() {
   }
 
   const tokenCheck = () => {
-    // если у пользователя есть токен в localStorage,
-    // эта функция проверит валидность токена
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
       authMesto.getToken(jwt)
