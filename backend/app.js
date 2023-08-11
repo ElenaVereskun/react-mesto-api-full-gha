@@ -2,7 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const helmet = require('helmet');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, DB_ADDRESS } = process.env;
 const app = express();
 
 const rateLimit = require('express-rate-limit');
@@ -21,7 +21,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const NotFoundError = require('./errors/not-found-err');
 
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
+mongoose.connect(DB_ADDRESS, {
   useNewUrlParser: true,
 })
   .then(() => console.log('Сервер работает'))
@@ -31,7 +31,7 @@ app.use(helmet());
 app.use(express.json());
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'https://mesto.vereskun.nomoreparties.co'],
+    origin: ['http://localhost:3001', 'https://mesto.vereskun.nomoreparties.co'],
   }),
 );
 
