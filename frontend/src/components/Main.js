@@ -2,7 +2,6 @@ import React from 'react';
 import Card from "./Card";
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import Header from './Header';
-/* import * as authMesto from '../utils/AuthMesto'; */
 import { useNavigate } from "react-router-dom";
 
 function Main({
@@ -20,8 +19,8 @@ function Main({
     const navigate = useNavigate();
 
     function onSignOut() {
-        localStorage.removeItem('token');
-        navigate('/signin', { replace: true });
+        localStorage.removeItem('jwt');
+        navigate('/signin', { replace: false });
         setIsLoggedIn(false);
     }
     return (
