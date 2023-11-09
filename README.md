@@ -1,16 +1,10 @@
 [![Статус тестов](../../actions/workflows/tests.yml/badge.svg)](../../actions/workflows/tests.yml)
 
-# react-mesto-api-full
-Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`. 
-  
-Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
+# Социальная сеть Место
+Функционал: Одностраничное приложения с 
+возможностью регистрации, добавления фото и  лайков
 
-Адрес репозитория: https://github.com/ElenaVereskun/react-mesto-api-full-gha
+Стек: HTML,CSS, JS, React, Git, Express.js, mongoDB
 
-## Ссылки на проект
-
-IP 158.160.36.128
-
-Frontend https://mesto.vereskun.nomoreparties.co
-
-Backend https://api.mesto.elenavereskun.nomoreparties.co
+## Ссылка на проект
+https://mesto.vereskun.nomoreparties.co/signin)https://mesto.vereskun.nomoreparties.co/signin
